@@ -8,14 +8,18 @@ services:
       - '7946:7946'
       - '7373:7373'
     environment:
-      SELF_IP: serfagent
+      SELF_IP: "172.29.20.2"
   serfjoiner:
     build:
       context: .
       dockerfile: joiner/Dockerfile
     environment:
-      SERF_HOST: serfagent
+      SERF_HOST: "172.29.20.2"
       SERF_PORT: 7373
+      TABLE_NAME: testserfmembers
+      AWS_REGION: us-east-1
+    env_file:
+    - .env
     depends_on:
     - serfagent
   serfreporter:
@@ -23,7 +27,7 @@ services:
       context: .
       dockerfile: reporter/Dockerfile
     environment:
-      MY_IP: "1.2.3.4" # something fake for now
+      MY_IP: "172.29.20.2"
       TABLE_NAME: testserfmembers
       AWS_REGION: us-east-1
     env_file:

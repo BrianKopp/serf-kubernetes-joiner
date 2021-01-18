@@ -7,6 +7,7 @@ ENV AWS_CLI_SHA256SUM "36fd8cb2ca82bfec27a25d23643de4879a9da88be7c44f5e0628d4fe1
 RUN set -eux; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
+        ca-certificates \
         curl \
         unzip; \
     cd /tmp; \
