@@ -18,3 +18,7 @@ services:
       SERF_PORT: 7373
     depends_on:
     - serfagent
+  serfreporter:
+    build:
+      context: .
+      dockerfile: reporter/Dockerfile
