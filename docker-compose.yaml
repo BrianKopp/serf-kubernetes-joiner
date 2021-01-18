@@ -9,3 +9,12 @@ services:
       - '7373:7373'
     environment:
       SELF_IP: serfagent
+  serfjoiner:
+    build:
+      context: .
+      dockerfile: joiner/Dockerfile
+    environment:
+      SERF_HOST: serfagent
+      SERF_PORT: 7373
+    depends_on:
+    - serfagent
