@@ -22,3 +22,11 @@ services:
     build:
       context: .
       dockerfile: reporter/Dockerfile
+    environment:
+      MY_IP: "1.2.3.4" # something fake for now
+      TABLE_NAME: testserfmembers
+      AWS_REGION: us-east-1
+    env_file:
+    - .env
+    depends_on:
+    - serfagent
