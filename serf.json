@@ -1,0 +1,6 @@
+{
+    "log_level": "debug",
+    "event_handlers": [],
+    "leave_on_terminate": true,
+    "tombstone_timeout": "1h"
+}

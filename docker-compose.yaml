@@ -1,0 +1,11 @@
+version: '3'
+services:
+  serfagent:
+    build:
+      context: .
+      dockerfile: agent/Dockerfile
+    ports:
+      - '7946:7946'
+      - '7373:7373'
+    environment:
+      SELF_IP: serfagent
